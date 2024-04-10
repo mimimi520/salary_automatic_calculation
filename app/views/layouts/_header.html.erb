@@ -1,0 +1,24 @@
+<nav class="navbar navbar-expand-md bg-white shadow-sm">
+  <div class="container">
+    <div class="w-100 d-flex justify-content-between align-items-center">
+      <div>
+        <%= link_to root_path, data: { turbolinks: false } do %>
+          <%= image_tag "logo.png", class: "img-fluid", width: "200px" %>
+        <% end %>
+      </div>
+          <p class="text-black d-md-block d-none my-1">税金一覧表</p>
+          <p class="text-black d-md-block d-none my-1">勤務先の設定</p>
+          <p class="text-black d-md-block d-none my-1">給料チェック</p>
+          <p class="text-black d-md-block d-none my-1 ml-5">ユーザー名</p>
+          <div class="dropdown">
+            <a class="dropdown-toggle text-purple" data-bs-toggle="dropdown" href="#"></a>
+            <div class="dropdown-menu dropdown-menu-end shadow text-center" style="padding: 4px 0px;">
+              <%= link_to "アカウント編集", "test", class: "dropdown-item text-secondary border-bottom py-2", data: { turbolinks: false } %>
+              <%= link_to "ログアウト", "test", class: "dropdown-item text-secondary py-2", method: :delete %>
+            </div>
+          </div>
+
+      </div>
+    </div>
+  </div>
+</nav>    
