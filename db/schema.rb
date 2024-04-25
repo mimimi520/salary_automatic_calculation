@@ -10,7 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2024_04_13_071750) do
+ActiveRecord::Schema.define(version: 2024_04_18_113315) do
+
+  create_table "salaries", charset: "utf8mb4", force: :cascade do |t|
+    t.date "date"
+    t.integer "salary_amount"
+    t.integer "transportation_expenses"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
 
   create_table "users", charset: "utf8mb4", force: :cascade do |t|
     t.string "email", default: "", null: false
