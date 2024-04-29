@@ -10,14 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2024_04_18_113315) do
+ActiveRecord::Schema.define(version: 2024_04_29_031740) do
 
   create_table "salaries", charset: "utf8mb4", force: :cascade do |t|
     t.date "date"
     t.integer "salary_amount"
     t.integer "transportation_expenses"
+    t.bigint "users_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "user_id"
+    t.index ["users_id"], name: "index_salaries_on_users_id"
   end
 
   create_table "users", charset: "utf8mb4", force: :cascade do |t|
@@ -33,4 +36,5 @@ ActiveRecord::Schema.define(version: 2024_04_18_113315) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "salaries", "users", column: "users_id"
 end

@@ -20,12 +20,13 @@ class SalariesController < ApplicationController
     
     if @salaries.save
       redirect_to salary_path(@salaries)
+      
     end
   end
   
   private
     def salary_params
-      params.require(:salary).permit(:date, :salary_amount, :transportation_expenses)
+      params.require(:salary).permit(:date, :salary_amount, :transportation_expenses).merge(user_id: current_user.id)
     end
   
 end

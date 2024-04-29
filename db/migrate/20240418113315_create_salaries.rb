@@ -5,6 +5,7 @@ class CreateSalaries < ActiveRecord::Migration[6.1]
       t.date :date
       t.integer :salary_amount
       t.integer :transportation_expenses
+      t.references :users, foreign_key: true
       
       t.timestamps
     end
