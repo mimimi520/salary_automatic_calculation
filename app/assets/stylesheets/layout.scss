@@ -1,6 +1,5 @@
-.header-text p {
-  display: inline-block;
-  margin: auto;
+.header-text {
+  text-align: right;
 }
 
 footer {
@@ -9,4 +8,20 @@ footer {
 
 .text-red {
   color: red;
+}
+
+.top-content-title {
+  color: #00bf63;
+}
+
+.salary-input-btn {
+  font-weight: bold;
+  text-decoration: underline;
+  margin: 15px 0px;
+}
+
+.money-input {
+  position: absolute;
+  top: 48px;
+  right: 28px;
 }

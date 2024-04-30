@@ -1,0 +1,20 @@
+<div class="top-content row text-center pt-4">
+  <div class="fw-bold">
+    <p>学生さん向け！気にするべき税金対策が一目でわかる</p>
+  </div>
+  <div class="top-content-title">
+    <h4>扶養内103万円以内で、今年</h4>
+    <h4>あとどれくらい稼げるのか計算できます</h4>
+  </div>
+  <div class="pt-3">
+    <p>今月の給与額を基準にして、毎月あとどれくらいのペースで稼げば<br>
+    扶養内の103万円に収まるか自動で計算することができます。</p>
+  </div>
+  
+  <% if user_signed_in? %>
+  <div class="salary-input-btn">
+    <%= link_to '給料入力画面へ', new_salary_path %>
+  </div>
+  <% end %>
+</div>
+

@@ -1,0 +1,41 @@
+<div class="container w-100">
+  <div class="text-center my-4">
+    <h2>給料入力画面</h2>
+  </div>
+    <div class="row justify-content-center">
+      <div class="col-10 col-md-6">
+      <%= form_with model: @salaries, url: salaries_path, local: true, class: 'salary-form'  do |f| %>
+        
+        <div class="mb-4">
+          <%= f.label :date, '給料日', class: "text-secondary fw-bold mb-2" %>
+          <%= f.date_field :date, autofocus: true, autocomplete: 'date', class: "form-control shadow-sm py-md-3" %>
+        </div>
+        
+        <div class="mb-4" style="position: relative;">
+          <%= f.label :salary_amount, '給与額', class: "text-secondary fw-bold mb-2" %>
+          <%= f.number_field :salary_amount, autofocus: true, autocomplete: 'salary_amount', placeholder: "0", class: "form-control shadow-sm py-md-3" %>
+          <span class="money-input" style="position: absolute;">円</span>
+        </div>
+        
+        <div class="mb-4" style="position: relative;">
+          <%= f.label :transportation_expenses, '交通費', class: "text-secondary fw-bold mb-2" %>
+          <%= f.number_field :transportation_expenses, autofocus: true, autocomplete: 'transportation_expenses', placeholder: "0", class: "form-control shadow-sm py-md-3" %>
+          <span class="money-input" style="position: absolute;">円</span>
+        </div>
+        
+        <!--<最後にそれぞれのボタンレイアウト修正>-->
+        <div class="d-flex justify-content-between">
+          <div class="my-5 text-center">
+            <%= f.submit "計算する", class: "fw-bold py-3 w-100" %>
+          </div>
+          
+          <div class="my-5 text-center">
+            <%= f.button "リセットする", type: :reset, class: "fw-bold py-3 w-100" %>
+          </div>
+        </div>
+          
+        
+      </div>
+    <% end %>
+  </div>
+</div>

@@ -1,36 +1,37 @@
-<nav class="navbar navbar-expand-md bg-white shadow-sm">
-  <div class="container">
-    <div class="w-100 d-flex align-items-center">
-      <div>
-          <%= link_to root_path, data: { turbolinks: false } do %>
-            <%= image_tag "logo.png", class: "img-fluid", width: "200px" %>
-          <% end %>
-      </div>
+<nav class="navbar bg-white shadow-sm">
+  <div class="container-fluid">
+    <%= link_to root_path, data: { turbolinks: false }, class: "navbar-brand" do %>
+      <%= image_tag "logo.png", class: "img-fluid", width: "200px" %>
+    <% end %>
+    <div class="d-flex justify-content-between align-items-center">
+    
       <% if user_signed_in? %>
       
-        <div class="header-text">
-          <p >税金一覧表</p>
-          <p >勤務先の設定</p>
-          <p >給料チェック</p>
-          <p >ユーザー名</p>
-        </div>
-          
-          <div class="dropdown">
-            <a class="dropdown-toggle text-purple" data-bs-toggle="dropdown" href="#"></a>
+      <div class="header-text d-flex align-items-center">
+        税金一覧表
+        勤務先の設定
+        給料チェック
+        ユーザー名
+      </div>
+      
+        <div class="dropdown">
+          <a class="dropdown-toggle text-purple" data-bs-toggle="dropdown" href="#"></a>
             <div class="dropdown-menu dropdown-menu-end shadow text-center" style="padding: 4px 0px;">
               <%= link_to "アカウント編集", edit_user_registration_path, class: "dropdown-item text-secondary border-bottom py-2", data: { turbolinks: false } %>
               <%= link_to "ログアウト", destroy_user_session_path, class: "dropdown-item text-secondary py-2", method: :delete %>
             </div>
-          </div>
+        </div>
+        
+    
       <% else %>
-          <div>
-            <%= link_to "ログイン", new_user_session_path, class: "btn text-purple me-3", data: { turbolinks: false } %>
-            <%= link_to "無料会員登録", new_user_registration_path, class: "btn btn-purple me-5 px-3 py-2", data: { turbolinks: false } %>
-          </div>
+        <div class="d-flex align-items-center">
+          <%= link_to "ログイン", new_user_session_path, class: "btn text-purple me-3", data: { turbolinks: false } %>
+          <%= link_to "無料会員登録", new_user_registration_path, class: "btn btn-purple me-5 px-3 py-2", data: { turbolinks: false } %>
+        </div>
        
       <% end %>
         
-      </div>
+      
     </div>
   </div>
 </nav>    
