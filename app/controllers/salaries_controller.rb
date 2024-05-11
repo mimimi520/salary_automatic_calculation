@@ -11,7 +11,7 @@ class SalariesController < ApplicationController
   end
   
   def new
-   @salaries = Salary.new
+   @salary = Salary.new
    
   end
   
