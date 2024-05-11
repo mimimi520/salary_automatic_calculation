@@ -50,6 +50,6 @@ test:
 #
 production:
   <<: *default
-  database: salary_automatic_calculation_production
-  username: salary_automatic_calculation
-  password: <%= ENV['SALARY_AUTOMATIC_CALCULATION_DATABASE_PASSWORD'] %>
+  adapter: postgresql
+  encoding: unicode
+  url: <%= ENV['DATABASE_URL'] %>
