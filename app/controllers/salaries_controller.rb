@@ -24,6 +24,21 @@ class SalariesController < ApplicationController
     end
   end
   
+  def update
+    @salary = Salary.find(params[:id])
+    if @salary.update(salary_params)
+      redirect_to @salary, notice: 'Salary was successfully updated.'
+    else
+      render :edit
+    end
+  end
+  
+  def destroy
+    @salary = Salary.find(params[:id])
+    @salary.destroy
+    redirect_to salaries_path, notice: 'Salary was successfully destroyed.'
+  end
+  
   private
     def salary_params
       params.require(:salary).permit(:date, :salary_amount, :transportation_expenses).merge(user_id: current_user.id)

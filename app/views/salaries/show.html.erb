@@ -2,5 +2,6 @@
   <h2>計算結果</h2>
   <p class="">103万円まで残り<%= @result1 %>円です</p><br>
   <p class="">毎月平均<%= @result2 %>円稼ぐことができます</p>
+  <%= link_to "給料チェック画面へ", salary_checks_path, class: "btn text-purple me-3", data: { turbolinks: false } %>
 </div>
 

@@ -2,7 +2,33 @@
   <div class="text-center my-4">
     <h2>給料チェック</h2>
   </div>
-  <p><%= @salaries %></p>
+ 
+ <table>
+  <thead>
+    <tr>
+      <th>給料日</th>
+      <th>給与額</th>
+      <th>交通費</th>
+      <th></th>
+      <th>編集</th>
+      <th>削除</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @salaries.each do |salary| %>
+      <tr>
+        <td><%= salary.date %></td>
+        <td><%= salary.salary_amount %>円</td>
+        <td><%= salary.transportation_expenses %>円</td>
+        <td><%#= link_to "詳細情報", salary_path(salary.id) %></td>
+        <td><%= link_to "編集", edit_salary_check_path(salary.id) %></td>
+        
+        <td><%= button_to "削除", salary_check_path(salary.id), { method: :delete, form: { data: { turbo_confirm: "本当に削除しますか？" } } } %></td>
+
+      </tr>
+    <% end %>
+  </tbody>
+ </table>
   
   
   

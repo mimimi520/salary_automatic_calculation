@@ -1,2 +1,39 @@
-<h1>SalaryChecks#edit</h1>
-<p>Find me in app/views/salary_checks/edit.html.erb</p>
+<div class="container">
+  <div class="text-center my-4">
+    <h2>給料情報編集画面</h2>
+  </div>
+  
+    <div class="row justify-content-center">
+      
+      <div class="col-10 col-md-6">
+       <%= form_with model: @salary, url: salary_path, local: true, class: 'salary-form'  do |f| %>
+        <%#= render "devise/shared/error_messages" %>
+        
+        <div class="mb-4">
+          <%= f.label :date, '給料日', class: "text-secondary fw-bold mb-2" %>
+          <%= f.date_field :date, autofocus: true, autocomplete: 'date', class: "form-control shadow-sm py-md-3" %>
+        </div>
+        
+        <div class="mb-4" style="position: relative;">
+          <%= f.label :salary_amount, '給与額', class: "text-secondary fw-bold mb-2" %>
+          <%= f.number_field :salary_amount, autofocus: true, autocomplete: 'salary_amount', placeholder: "0", class: "form-control shadow-sm py-md-3" %>
+          <span class="money-input" style="position: absolute;">円</span>
+        </div>
+        
+        <div class="mb-4" style="position: relative;">
+          <%= f.label :transportation_expenses, '交通費', class: "text-secondary fw-bold mb-2" %>
+          <%= f.number_field :transportation_expenses, autofocus: true, autocomplete: 'transportation_expenses', placeholder: "0", class: "form-control shadow-sm py-md-3" %>
+          <span class="money-input" style="position: absolute;">円</span>
+        </div>
+      
+        <div class="my-5 text-center">
+          <%= f.submit "更新する", class: "fw-bold py-3 w-50" %>
+        </div>
+       <% end %>
+      </div>
+      
+      </div>  
+    </div>
+  
+  <%= link_to "給料チェック画面に戻る", salary_checks_path, class: "btn text-purple me-3", data: { turbolinks: false } %>
+</div>

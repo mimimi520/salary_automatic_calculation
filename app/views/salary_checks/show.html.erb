@@ -1,2 +1,25 @@
-<h1>SalaryChecks#show</h1>
-<p>Find me in app/views/salary_checks/show.html.erb</p>
+<div class="container">
+  <div class="text-center my-4">
+    <h2>給料詳細画面</h2>
+  </div>
+  
+   <table>
+    <thead>
+      <tr>
+        <th>給料日</th>
+        <th>給与額</th>
+        <th>交通費</th>
+        <!-- 他のカラムを追加 -->
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><%= @salary.date %></td>
+        <td><%= @salary.salary_amount %>円</td>
+        <td><%= @salary.transportation_expenses %>円</td>
+      </tr>
+    </tbody>
+ 　</table>
+  
+  <%= link_to "給料チェック画面に戻る", salary_checks_path, class: "btn text-purple me-3", data: { turbolinks: false } %>
+</div>
