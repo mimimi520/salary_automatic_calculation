@@ -1,10 +1,13 @@
-<div class="container w-100">
+<div class="container">
   <div class="text-center my-4">
-    <h2>給料入力画面</h2>
+    <h2>給料情報編集画面</h2>
   </div>
+  
     <div class="row justify-content-center">
+      
       <div class="col-10 col-md-6">
-      <%= form_with model: @salary, url: salaries_path, local: true, class: 'salary-form'  do |f| %>
+       <%= form_with model: @salary, url: salary_path, local: true, class: 'salary-form'  do |f| %>
+        <%#= render "devise/shared/error_messages" %>
         
         <div class="mb-4">
           <%= f.label :date, '給料日', class: "text-secondary fw-bold mb-2" %>
@@ -22,20 +25,15 @@
           <%= f.number_field :transportation_expenses, autofocus: true, autocomplete: 'transportation_expenses', placeholder: "0", class: "form-control shadow-sm py-md-3" %>
           <span class="money-input" style="position: absolute;">円</span>
         </div>
-        
-        <!--<最後にそれぞれのボタンレイアウト修正>-->
-        <div class="d-flex justify-content-between">
-          <div class="my-5 text-center">
-            <%= f.submit "計算する", class: "fw-bold py-3 w-100" %>
-          </div>
-          
-          <div class="my-5 text-center">
-            <%= f.button "リセットする", type: :reset, class: "fw-bold py-3 w-100" %>
-          </div>
+      
+        <div class="my-5 text-center">
+          <%= f.submit "更新する", class: "fw-bold py-3 w-50" %>
         </div>
-          
-        
+       <% end %>
       </div>
-    <% end %>
-  </div>
+      
+      </div>  
+    </div>
+  
+  <%= link_to "給料チェック画面に戻る", salary_checks_path, class: "btn text-purple me-3", data: { turbolinks: false } %>
 </div>

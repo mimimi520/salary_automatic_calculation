@@ -11,7 +11,7 @@ class SalariesController < ApplicationController
   end
   
   def new
-   @salaries = Salary.new
+   @salary = Salary.new
    
   end
   
@@ -22,6 +22,21 @@ class SalariesController < ApplicationController
       redirect_to salary_path(@salary)
       
     end
+  end
+  
+  def update
+    @salary = Salary.find(params[:id])
+    if @salary.update(salary_params)
+      redirect_to @salary, notice: 'Salary was successfully updated.'
+    else
+      render :edit
+    end
+  end
+  
+  def destroy
+    @salary = Salary.find(params[:id])
+    @salary.destroy
+    redirect_to salaries_path, notice: 'Salary was successfully destroyed.'
   end
   
   private
