@@ -1,7 +1,10 @@
 class SalaryChecksController < ApplicationController
+  before_action :authenticate_user! 
+  
   def index
-    @salaries = Salary.all
+    @salaries = current_user.salaries
   end
+
 
   def show
     @salary = Salary.find(params[:id])
